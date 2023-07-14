@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE activity-upload [
+    <!ELEMENT activity-upload (activities)>
+    <!ATTLIST activity-upload operation (insert|update) "insert">
+    <!ELEMENT activities (activity+)>
+    <!ELEMENT activity (id?, activity_name, activity_description, activity_duration, activity_image)>
+    <!ELEMENT activity_name (#PCDATA)>
+    <!ELEMENT activity_description (#PCDATA)>
+    <!ELEMENT activity_duration (#PCDATA)>
+    <!ELEMENT activity_image (#PCDATA)>
+]>
+<activity-upload operation="insert">
+    <activities>
+        <activity>
+            <activity_name>Yoga</activity_name>
+            <activity_description>Yoga is a group of physical, mental, and spiritual practices or disciplines which originated in ancient India and aim to control and still the mind, recognizing a detached witness-consciousness untouched by the mind and mundane suffering.</activity_description>
+            <activity_duration>60 minutes</activity_duration>
+            <activity_image>https://images.unsplash.com/photo-1567281150864-5296ada11f3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80</activity_image>
+        </activity>
+        <activity>
+            <activity_name>Pilates</activity_name>
+            <activity_description>Pilates is a form of exercise which concentrates on strengthening the body with an emphasis on core strength.</activity_description>
+            <activity_duration>60 minutes</activity_duration>
+            <activity_image>https://images.unsplash.com/photo-1604467731651-3d8b9c702b86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80</activity_image>
+        </activity>
+        <activity>
+            <activity_name>Abs</activity_name>
+            <activity_description>If you're looking for a gym class that's specifically designed to help you tone and strengthen your abs, then you might want to consider an abs-focused workout class. This type of class typically includes a variety of exercises that are specifically targeted towards toning and strengthening the muscles in your abdominal region.</activity_description>
+            <activity_duration>60 minutes</activity_duration>
+            <activity_image>https://images.unsplash.com/photo-1577221084712-45b0445d2b00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=698&q=80</activity_image>
+        </activity>
+        <activity>
+            <activity_name>HIIT</activity_name>
+            <activity_description>This abs class uses various stations or equipment to tone your stomach while making ab work fun again!</activity_description>
+            <activity_duration>60 minutes</activity_duration>
+            <activity_image>https://images.unsplash.com/photo-1550259979-ed79b48d2a30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=768&q=80</activity_image>
+        </activity>
+        <activity>
+            <activity_name>Indoor Cycling</activity_name>
+            <activity_description>Indoor cycling is a great way to get in your cardio each week. It is a low-impact workout, but it is no ride in the park.</activity_description>
+            <activity_duration>60 minutes</activity_duration>
+            <activity_image>https://images.unsplash.com/photo-1625594755684-a73285a64f66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80</activity_image>
+        </activity>
+        <activity>
+            <activity_name>Boxing</activity_name>
+            <activity_description>Incorporating multiple boxing techniques using pads or boxing bags. Metabolic conditioning and bodyweight strength training, whilst improving endurance and co-ordination.</activity_description>
+            <activity_duration>60 minutes</activity_duration>
+            <activity_image>https://images.unsplash.com/photo-1575800509571-6a7fd6b61aad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80</activity_image>
+        </activity>
+        <activity>
+            <activity_name>Zumba</activity_name>
+            <activity_description>Zumba classes combine latin and international music and dance to create a dynamic calorie-burning form of workout for people of all fitness levels and age groups.</activity_description>
+            <activity_duration>60 minutes</activity_duration>
+            <activity_image>https://images.unsplash.com/photo-1541904845547-0eaf866de232?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=641&q=80</activity_image>
+        </activity>
+    </activities>
+</activity-upload>
