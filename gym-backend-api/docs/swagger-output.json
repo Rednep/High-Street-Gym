@@ -1,0 +1,1281 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Weather API",
+    "description": "JSON REST API for viewing weather data"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080"
+    }
+  ],
+  "basePath": "",
+  "paths": {
+    "/uploads": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/docs": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/users/image/{userID}/{imagePath}": {
+      "put": {
+        "summary": "Updates the user image path",
+        "description": "",
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID of the user"
+          },
+          {
+            "name": "imagePath",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Path of the image"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Updates the user image path",
+          "content": {
+            "application/json": {
+              "schema": {
+                "imagePath": "images/users/1.jpg",
+                "userID": "1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "post": {
+        "summary": "Logs in the user",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {}
+      }
+    },
+    "/users/logout": {
+      "post": {
+        "summary": "Logs out the user",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Logs out the user",
+          "content": {
+            "application/json": {
+              "schema": {
+                "authenticationKey": "88f76721-ff89-46f2-ac3a-c0c8a24d5625"
+              },
+              "example": {
+                "authenticationKey": "88f76721-ff89-46f2-ac3a-c0c8a24d5625"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "Get all users",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "description": "Gets all the users"
+        }
+      },
+      "post": {
+        "summary": "Create a user",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Creates a user",
+          "content": {
+            "application/json": {
+              "schema": {
+                "user_email": "string",
+                "user_password": "string",
+                "user_role": "string",
+                "user_phone": "string",
+                "user_first_name": "string",
+                "user_last_name": "string,",
+                "user_address": "string"
+              },
+              "example": {
+                "user_email": "student@email.com",
+                "user_password": "abc123",
+                "user_role": "student",
+                "user_phone": "1234567890",
+                "user_first_name": "test",
+                "user_last_name": "test",
+                "user_address": "123 test street"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updates a user by id",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Updates a user by id",
+          "content": {
+            "application/json": {
+              "schema": {
+                "user_id": "string",
+                "user_email": "string",
+                "user_password": "string",
+                "user_role": "string",
+                "user_phone": "string",
+                "user_first_name": "string",
+                "user_last_name": "string,",
+                "user_address": "string"
+              },
+              "example": {
+                "user_id": "1",
+                "user_email": "trainer@email.com",
+                "user_password": "abc123",
+                "user_role": "trainer",
+                "user_phone": "1234567890",
+                "user_first_name": "test",
+                "user_last_name": "test",
+                "user_address": "123 test street"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/trainers": {
+      "get": {
+        "summary": "Get all trainers",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "description": "Gets all the trainers"
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "summary": "Get a user by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Gets a user by id"
+        }
+      },
+      "delete": {
+        "summary": "Delete a user by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users/by-key/{authenticationKey}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "authenticationKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users/register": {
+      "post": {
+        "summary": "Register a user",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Registers a user",
+          "content": {
+            "application/json": {
+              "schema": {
+                "user_email": "string",
+                "user_password": "string",
+                "user_phone": "string",
+                "user_first_name": "string",
+                "user_last_name": "string",
+                "user_address": "string",
+                "user_image_path": "string"
+              },
+              "example": {
+                "user_email": "member@email.com",
+                "user_password": "abc123",
+                "user_phone": "1234567890",
+                "user_first_name": "test",
+                "user_last_name": "test",
+                "user_address": "123 test street",
+                "user_image_path": "default_user.png"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/activities": {
+      "get": {
+        "summary": "Gets all activities",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Creates an activity",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Creates an activity",
+          "content": {
+            "application/json": {
+              "schema": {
+                "activity_name": "string",
+                "activity_description": "string",
+                "activity_duration": "string"
+              },
+              "example": {
+                "activity_name": "yoga",
+                "activity_description": "yoga for beginners",
+                "activity_duration": "60 minutes"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update an activity by ID",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Update an activity by ID",
+          "content": {
+            "application/json": {
+              "schema": {
+                "activity_id": "string",
+                "activity_name": "string",
+                "activity_description": "string",
+                "activity_duration": "string"
+              },
+              "example": {
+                "activity_id": "1",
+                "activity_name": "yoga",
+                "activity_description": "yoga for beginners",
+                "activity_duration": "60 minutes"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an activity by ID",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "id": "string"
+              },
+              "example": {
+                "id": "1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/activities/{name}": {
+      "get": {
+        "summary": "Get an activity by name",
+        "description": "",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/activity/{id}": {
+      "get": {
+        "summary": "Get an activity by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Activity ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/activities/upload/xml": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/class": {
+      "post": {
+        "summary": "Creates a class",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Creates a class",
+          "content": {
+            "application/json": {
+              "schema": {
+                "class_activity_id": "string",
+                "class_room_id": "string",
+                "class_trainer_user_id": "string",
+                "class_date": "string",
+                "class_time": "string"
+              },
+              "example": {
+                "class_activity_id": "1",
+                "class_room_id": "1",
+                "class_trainer_user_id": "2",
+                "class_date": "2023-04-04",
+                "class_time": "00:00:00"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/classes": {
+      "get": {
+        "summary": "Get all classes",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/class/{id}": {
+      "get": {
+        "summary": "Get a class by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Class id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update a class by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Update a class by id",
+          "content": {
+            "application/json": {
+              "schema": {
+                "class_id": "string",
+                "class_activity_id": "string",
+                "class_room_id": "string",
+                "class_trainer_user_id": "string",
+                "class_date": "string",
+                "class_time": "string"
+              },
+              "example": {
+                "class_id": "1",
+                "class_activity_id": "1",
+                "class_room_id": "1",
+                "class_trainer_user_id": "1",
+                "class_date": "2023-04-04",
+                "class_time": "00:00:00"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a class by id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Class id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/classes/details": {
+      "get": {
+        "summary": "Get all classes with details",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a class with details",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Create a class with their details",
+          "content": {
+            "application/json": {
+              "schema": {
+                "class_activity_name": "Yoga",
+                "class_room_number": "1",
+                "class_trainer_first_name": "John",
+                "class_date": "2021-05-01",
+                "class_time": "10:00:00"
+              },
+              "example": {
+                "class_activity_name": "Yoga",
+                "class_room_number": "1",
+                "class_trainer_first_name": "Arnold",
+                "class_date": "2023-05-01",
+                "class_time": "10:00:00"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update a class with details",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Update a class with their details",
+          "content": {
+            "application/json": {
+              "schema": {
+                "class_id": "string",
+                "class_activity_name": "string",
+                "class_room_number": "string",
+                "class_trainer_first_name": "string",
+                "class_date": "string",
+                "class_time": "string"
+              },
+              "example": {
+                "class_id": "1",
+                "class_activity_name": "Yoga",
+                "class_room_number": "1",
+                "class_trainer_first_name": "Chuck",
+                "class_date": "2021-05-01",
+                "class_time": "10:00:00"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/classes/details/{id}": {
+      "get": {
+        "summary": "Get class by id with details",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Class ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/classes/upload/xml": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/rooms": {
+      "post": {
+        "summary": "Creates a room",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Creates a room",
+          "content": {
+            "application/json": {
+              "schema": {
+                "room_location": "string",
+                "room_number": "string"
+              },
+              "example": {
+                "room_location": "wynnum",
+                "room_number": "1"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Gets all rooms",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update a room by ID",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Update a room by ID",
+          "content": {
+            "application/json": {
+              "schema": {
+                "room_id": "string",
+                "room_location": "string",
+                "room_number": "string"
+              },
+              "example": {
+                "room_id": "1",
+                "room_location": "wynnum",
+                "room_number": "1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rooms/{id}": {
+      "get": {
+        "summary": "Get a room by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Room ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a room by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Room ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/rooms/upload/xml": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bookings/details?pageNumber=&pageSize=": {
+      "get": {
+        "summary": "Gets all bookings with details",
+        "description": "Endpoint to get all bookings with details.",
+        "parameters": [
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bookings/{userID}": {
+      "get": {
+        "summary": "Get all bookings by user id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bookings/{userID}/classes/{classID}": {
+      "get": {
+        "summary": "Check if a class is booked by a user",
+        "description": "",
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "classID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bookings/number/{id}": {
+      "get": {
+        "summary": "Get future bookings number by user id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/booking": {
+      "post": {
+        "summary": "Creates a booking",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Creates a booking",
+          "content": {
+            "application/json": {
+              "schema": {
+                "booking_user_id": "string",
+                "booking_class_id": "string",
+                "booking_datetime": "string"
+              },
+              "example": {
+                "booking_user_id": "1",
+                "booking_class_id": "1",
+                "booking_datetime": "2023-04-04 12:00:00"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updates a booking by id",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Updates a booking by id",
+          "content": {
+            "application/json": {
+              "schema": {
+                "booking_id": "string",
+                "booking_user_id": "string",
+                "booking_class_id": "string",
+                "booking_created_datetime": "string"
+              },
+              "example": {
+                "booking_id": "1",
+                "booking_user_id": "1",
+                "booking_class_id": "1",
+                "booking_created_datetime": "2023-04-04 12:00:00"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bookings/{bookingID}": {
+      "delete": {
+        "summary": "Deletes a booking by id",
+        "description": "Endpoint to delete a booking by id.",
+        "parameters": [
+          {
+            "name": "bookingID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/create": {
+      "post": {
+        "summary": "Create a blog post",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Creates a user",
+          "content": {
+            "application/json": {
+              "schema": {
+                "post_title": "string",
+                "post_content": "string",
+                "post_user_id": "string"
+              },
+              "example": {
+                "post_title": "Blog Post Title",
+                "post_content": "Blog Post Content",
+                "post_user_id": "1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/blog": {
+      "get": {
+        "summary": "Get all blog posts",
+        "description": "Endpoint to get all blog posts.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/blog/{id}": {
+      "get": {
+        "summary": "Get a blog post by its id",
+        "description": "Endpoint to get a blog post by it",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/blogs/{id}": {
+      "get": {
+        "summary": "Get all blog posts by user id",
+        "description": "Endpoint to get all blog posts by user id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/update": {
+      "patch": {
+        "summary": "Update a blog post",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Updates a blog post by id",
+          "content": {
+            "application/json": {
+              "schema": {
+                "post_id": "string",
+                "post_title": "string",
+                "post_content": "string",
+                "post_user_id": "string"
+              },
+              "example": {
+                "post_id": "1",
+                "post_title": "Blog Post Title",
+                "post_content": "Blog Post Content",
+                "post_user_id": "1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete/{postID}": {
+      "delete": {
+        "summary": "Delete a blog post by id",
+        "description": "Endpoint to delete a blog post by its id.",
+        "parameters": [
+          {
+            "name": "postID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* .table :where(thead, tfoot) :where(th, td) {
+    background-color: #0079b8;
+  } */
+  .btn-primary {
+    background-color: #0079b8 !important;
+  }
+  .border-primary {
+    border-color: #0079b8 !important;
+  }
+  .bg-primary {
+    background-color: #0079b8 !important;
+  }
+  .file-input {
+    border-color: #0079b8 !important;
+  }
+  .file-input-primary {
+    color: #0079b8 !important;
+  }
+  .bg-blue-500 {
+    --tw-bg-opacity: 1;
+    background-color: #0079b8 !important;
+  }
+  :root {
+    --p: 227 87.3% 46.3%;
+  }
+  .shadow-xl-top {
+    background-color: rgb(255, 255, 255);
+  }
+  .table th:first-child {
+    position: static;
+    position: -webkit-static;
+    left: 0px;
+    z-index: 0;
+  }
+  .description-cell {
+    word-wrap: break-word;
+    white-space: normal;
+    width: 50%;
+  }
+  .centered-column {
+    text-align: center;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn ease 0.5s;
+  }
+}
